@@ -1,0 +1,59 @@
+{
+  "name": "dsh-locale-multilingual",
+  "version": "0.6.0",
+  "description": "DeepSeek Harness 多语言包：繁體中文（OpenCC 字形转换）与日本語／한국어／Français（本地语言文件，完全离线，不调用任何接口）",
+  "license": "MIT",
+  "author": "REPLACE_WITH_YOUR_NAME",
+  "type": "module",
+  "main": "lib/index.js",
+  "scripts": {
+    "verify": "node scripts/verify.mjs"
+  },
+  "exports": {
+    ".": "./lib/index.js",
+    "./client": "./client.js",
+    "./package.json": "./package.json",
+    "./lang/*": "./lang/*"
+  },
+  "files": [
+    "lang",
+    "lib",
+    "client.js",
+    "cordis.patch.yml",
+    "ui-strings.json",
+    "README.md",
+    "LICENSE"
+  ],
+  "keywords": [
+    "dsh",
+    "dsh-plugin",
+    "deepseek-harness",
+    "locale",
+    "i18n",
+    "multilingual",
+    "zh-tw",
+    "traditional-chinese",
+    "japanese",
+    "korean",
+    "french"
+  ],
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual.git"
+  },
+  "homepage": "https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual#readme",
+  "bugs": {
+    "url": "https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual/issues"
+  },
+  "dsh": {
+    "bundle": {
+      "patch": "./cordis.patch.yml"
+    },
+    "client": {
+      "platform": "web"
+    }
+  },
+  "dependencies": {
+    "opencc-js": "^1.4.2"
+  }
+}

@@ -1,0 +1,12 @@
+# ============================================================================
+# dsh-locale-multilingual —— DSH bundle patch
+# ============================================================================
+# 掛載聲明：把本體插進 profile 的配置樹。語言本身由用戶端在啟動時註冊。
+#
+# 安裝：放進 profile 的 dependencies + dsh.profile.bundles，重新啟動。
+# 撤掉：從 dsh.profile.bundles 裡刪掉 dsh-locale-multilingual，重啟即可。
+# ============================================================================
+
+- insert:
+    - id: dsh-locale-multilingual
+      name: dsh-locale-multilingual
