@@ -1,6 +1,6 @@
 # dsh-locale-multilingual
 
-Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (Taiwan)**、**日本語**、**한국어**、**Français**.
+Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (台灣)**、**日本語**、**한국어**、**Français**.
 
 Once installed they show up under `Settings → General → Language`.
 
