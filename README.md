@@ -1,6 +1,10 @@
 # dsh-locale-multilingual
 
-Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (台灣)**, **日本語**, **한국어**, **Français**.
+[![npm version](https://img.shields.io/npm/v/dsh-locale-multilingual.svg)](https://www.npmjs.com/package/dsh-locale-multilingual)
+[![npm downloads](https://img.shields.io/npm/dm/dsh-locale-multilingual.svg)](https://www.npmjs.com/package/dsh-locale-multilingual)
+[![license](https://img.shields.io/npm/l/dsh-locale-multilingual.svg)](LICENSE)
+
+Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (Taiwan)**、**日本語**、**한국어**、**Français**.
 
 Once installed they show up under `Settings → General → Language`.
 
@@ -76,15 +80,23 @@ after startup, and mutations inside a shadow root never reach a `MutationObserve
 
 ### Installation
 
-**From GitHub (recommended):**
+**From npm (recommended):**
 
 ```bash
-dsh plugin add <your-github-user>/dsh-locale-multilingual
+dsh plugin add dsh-locale-multilingual
 ```
 
-A full URL also works: `dsh plugin add https://github.com/<user>/dsh-locale-multilingual`.
-
 Restart DSH, then pick a language under `Settings → General → Language`.
+
+**From GitHub:**
+
+```bash
+dsh plugin add clarag0d/dsh-locale-multilingual
+```
+
+This needs `git` on the machine, and pnpm resolves the shorthand to an SSH URL
+(`git+ssh://git@github.com/...`), so an SSH key registered on GitHub is required. If either is
+missing, use the npm route above instead.
 
 **From a local directory (development / personal use):**
 
@@ -226,17 +238,25 @@ DSH 的界面文案有三种来源，所以这里也有三条通道。
 
 ## 安装
 
-### 方式一：从 GitHub 安装（推荐）
+### 方式一：从 npm 安装（推荐）
 
 ```bash
-dsh plugin add <你的GitHub用户名>/dsh-locale-multilingual
+dsh plugin add dsh-locale-multilingual
 ```
-
-也可以给完整地址 `dsh plugin add https://github.com/<用户名>/dsh-locale-multilingual`。
 
 装完重启 DSH，在 `设置 → 一般 → 语言` 里选择。
 
-### 方式二：本地目录安装（开发/自用）
+### 方式二：从 GitHub 安装
+
+```bash
+dsh plugin add clarag0d/dsh-locale-multilingual
+```
+
+这条路要求本机装了 `git`；而且 pnpm 会把这种简写解析成 SSH 地址
+（`git+ssh://git@github.com/...`），所以还需要在 GitHub 上登记过 SSH 公钥。
+两个条件缺一个都会装失败——缺的话用上面的 npm 方式。
+
+### 方式三：本地目录安装（开发/自用）
 
 在 profile 的 `package.json` 里加依赖并挂载：
 

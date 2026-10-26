@@ -1,9 +1,9 @@
 {
   "name": "dsh-locale-multilingual",
-  "version": "0.6.0",
+  "version": "0.6.1",
   "description": "DeepSeek Harness 多语言包：繁體中文（OpenCC 字形转换）与日本語／한국어／Français（本地语言文件，完全离线，不调用任何接口）",
   "license": "MIT",
-  "author": "REPLACE_WITH_YOUR_NAME",
+  "author": "clarag0d",
   "type": "module",
   "main": "lib/index.js",
   "scripts": {
@@ -18,6 +18,7 @@
   "files": [
     "lang",
     "lib",
+    "scripts",
     "client.js",
     "cordis.patch.yml",
     "ui-strings.json",
@@ -39,11 +40,14 @@
   ],
   "repository": {
     "type": "git",
-    "url": "git+https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual.git"
+    "url": "git+https://github.com/clarag0d/dsh-locale-multilingual.git"
   },
-  "homepage": "https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual#readme",
+  "homepage": "https://github.com/clarag0d/dsh-locale-multilingual#readme",
   "bugs": {
-    "url": "https://github.com/REPLACE_WITH_YOUR_GITHUB_USER/dsh-locale-multilingual/issues"
+    "url": "https://github.com/clarag0d/dsh-locale-multilingual/issues"
+  },
+  "publishConfig": {
+    "registry": "https://registry.npmjs.org/"
   },
   "dsh": {
     "bundle": {
