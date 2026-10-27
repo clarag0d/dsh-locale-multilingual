@@ -1,0 +1,9 @@
+*.json linguist-detectable=true
+*.json linguist-documentation=false
+*.json linguist-language=JSON
+
+docs/*.py linguist-detectable=true
+
+node_modules/* linguist-vendored
+
+dist/*.js linguist-generated
