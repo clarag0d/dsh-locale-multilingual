@@ -4,7 +4,7 @@
 [![npm downloads](https://img.shields.io/npm/dm/dsh-locale-multilingual.svg)](https://www.npmjs.com/package/dsh-locale-multilingual)
 [![license](https://img.shields.io/npm/l/dsh-locale-multilingual.svg)](LICENSE)
 
-Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (Taiwan)**、**日本語**、**한국어**、**Français**.
+Adds four UI languages to **DeepSeek Harness (DSH)**: **繁體中文 (台灣)**、**日本語**、**한국어**、**Français**.
 
 Once installed they show up under `Settings → General → Language`.
 

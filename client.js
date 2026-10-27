@@ -167,6 +167,42 @@ window.__ModuleLoader__.load({
     let uiObserver = null
     let uiTimer = 0
 
+    /**
+     * 被我們改過的節點與它的原值。
+     *
+     * 為什麼要記：這些白名單文案是 React 渲染的，我們直接改 DOM 之後，React 的
+     * 虛擬 DOM 裡仍然是原文。從 ja 直接切到 ko 時，React 認為「文字沒變」不會
+     * 重繪，節點上就留著 ja 的譯文；而我們的匹配表 key 是中文原文，自然對不上，
+     * 於是側邊欄卡在上一門語言。只有切到 en（值真的變了）React 才重繪回原文，
+     * 我們才有機會重新套用——這正是「換到英文再換」就正常的原因。
+     *
+     * 所以切換語言時先把改過的節點還原成原值，再按新語言重套。
+     */
+    const patchedText = new Map() // Text -> { orig, written }
+    const patchedAttr = new Map() // Element -> Map(attr -> { orig, written })
+    let appliedLocale = ''
+
+    function restorePatches() {
+      for (const [node, rec] of patchedText) {
+        try {
+          if (!node.isConnected) continue
+          // 只有「現在的值仍是我們寫進去的」才還原；若 React 已覆蓋，說明它接管了，
+          // 不能拿舊值把它蓋回去。
+          if (node.nodeValue === rec.written) node.nodeValue = rec.orig
+        } catch (err) {}
+      }
+      patchedText.clear()
+      for (const [el, attrs] of patchedAttr) {
+        try {
+          if (!el.isConnected) continue
+          for (const [name, rec] of attrs) {
+            if (el.getAttribute(name) === rec.written) el.setAttribute(name, rec.orig)
+          }
+        } catch (err) {}
+      }
+      patchedAttr.clear()
+    }
+
     function activeMap() {
       return localeTexts.get(activeLocale) || null
     }
@@ -185,6 +221,7 @@ window.__ModuleLoader__.load({
       const next = raw.slice(0, at) + converted + raw.slice(at + key.length)
       if (next === raw) return false
       node.nodeValue = next
+      patchedText.set(node, { orig: raw, written: next })
       return true
     }
 
@@ -200,7 +237,11 @@ window.__ModuleLoader__.load({
         if (!converted || converted === key) continue
         const at = raw.indexOf(key)
         if (at < 0) continue
-        el.setAttribute(name, raw.slice(0, at) + converted + raw.slice(at + key.length))
+        const written = raw.slice(0, at) + converted + raw.slice(at + key.length)
+        el.setAttribute(name, written)
+        let attrs = patchedAttr.get(el)
+        if (!attrs) { attrs = new Map(); patchedAttr.set(el, attrs) }
+        attrs.set(name, { orig: raw, written })
         changed = true
       }
       return changed
@@ -208,8 +249,15 @@ window.__ModuleLoader__.load({
 
     let uiLog = ''
     function applyUi() {
+      if (!document) return
+      // 語言變了：先把上次改過的節點還原成原文，再按新語言重套。
+      // 少了這一步，ja → ko 這種「兩邊都不是原文」的切換會卡在上一門語言。
+      if (activeLocale !== appliedLocale) {
+        restorePatches()
+        appliedLocale = activeLocale
+      }
       const map = activeMap()
-      if (!map || !map.size || !document) return
+      if (!map || !map.size) return
       const roots = collectRoots()
       let replaced = 0
       for (const root of roots) {

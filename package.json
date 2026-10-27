@@ -1,6 +1,6 @@
 {
   "name": "dsh-locale-multilingual",
-  "version": "0.6.1",
+  "version": "0.6.2",
   "description": "DeepSeek Harness 多语言包：繁體中文（OpenCC 字形转换）与日本語／한국어／Français（本地语言文件，完全离线，不调用任何接口）",
   "license": "MIT",
   "author": "clarag0d",
