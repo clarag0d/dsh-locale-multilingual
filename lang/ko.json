@@ -2365,7 +2365,7 @@
       "settings.enter.description": "에이전트 실행 중 Enter 키와 전송 버튼의 동작. Cmd/Ctrl+Enter는 다른 동작을 사용합니다",
       "settings.enter.queue": "대기열로 보내기",
       "settings.enter.steer": "끼어들어 보내기",
-      "hero.headline": "미지의 영역을 탐험하세요",
+      "hero.headline": "미지의 세계로",
       "hero.preview": "프리뷰",
       "hero.chooseWorkspace": "워크스페이스 선택",
       "session.hierarchy": "세션 계층",

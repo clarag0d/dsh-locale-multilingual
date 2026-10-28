@@ -577,7 +577,7 @@
       "settings.enter.description": "Comportement de la touche Entrée et du bouton d'envoi pendant l'exécution de l'agent ; Cmd/Ctrl+Entrée utilise l'autre comportement",
       "settings.enter.queue": "Envoyer en file d'attente",
       "settings.enter.steer": "Envoyer en intervention",
-      "hero.headline": "Explorez l'inconnu",
+      "hero.headline": "Au-delà de l'inconnu",
       "hero.preview": "Aperçu",
       "hero.chooseWorkspace": "Choisir un espace de travail",
       "session.hierarchy": "Hiérarchie des sessions",

@@ -2193,7 +2193,7 @@
       "settings.enter.description": "エージェント実行時の Enter キーと送信ボタンの動作。Cmd/Ctrl+Enter は別の動作を使用します",
       "settings.enter.queue": "キューに追加して送信",
       "settings.enter.steer": "割り込み送信",
-      "hero.headline": "未踏の領域を探索",
+      "hero.headline": "未知への旅",
       "hero.preview": "プレビュー版",
       "hero.chooseWorkspace": "ワークスペースを選択",
       "session.hierarchy": "セッション階層",
